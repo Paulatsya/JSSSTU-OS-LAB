@@ -1,17 +1,18 @@
 #include<stdio.h>
 #include<string.h>
 int main(){
-    char fn[10],pat[10],temp[200];
+    char fn[100],pattern[100],temp[100];
     FILE *fp;
-    printf("Enter file name\n");
+    printf("Enter file name>> ");
     scanf("%s",fn);
-    printf("Enter patter\n");
-    scanf("%s",pat);
+    printf("Enter pattern>> ");
+    scanf("%s",pattern);
     fp=fopen(fn,"r");
-    while(feof(fp)){
+    while(!feof(fp)){
         fgets(temp,100,fp);
-        if(strstr(temp,pat))
+        if(strstr(temp,pattern))
             printf("%s",temp);
+
     }
-    fclose(fp);
+    return 0;
 }

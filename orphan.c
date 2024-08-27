@@ -1,29 +1,30 @@
 #include<stdio.h>
-#include<sys/types.h>
-#include<unistd.h>
 #include<stdlib.h>
-
+#include<stdlib.h>
+#include<unistd.h>
+#include<sys/types.h>
 int main(){
-    pid_t myPid,childPid,parentPid;
-    childPid=fork();
-    if(childPid<0){
-        printf("Error in creating a chlid\n");
+    pid_t child_pid;
+    child_pid=fork();
+    if(child_pid==0){
+        printf("[CHILD]You are in Child process\n");
+        printf("[CHILD]My pid>> %d parents pid>> %d\n",getpid(),getppid());
+        printf("[CHILD]Now i am going to sleep so that parent can terminate\n");
+        sleep(5);
+        printf("[CHILD]My parent has been executed but I am still running, which makes the init process my parent\n");
+        printf("[CHILD]Hence new parent(init) pid>> %d",getppid());
+    }else if (child_pid>0)
+    {
+        printf("[PARENT]You are in the Parent processs\n");
+        printf("[PARENT]My pid>> %d childs pid>> %d\n",getpid(),child_pid);
+        printf("[PARENT]Terminating myself before child wakes up");
         exit(0);
-    }//if check id child created
-    if(childPid==0){
-        myPid=getpid();
-        parentPid=getppid();
-        printf("[CHILD]My pid=%d\n[CHILD]My Parent's pid=%d\n ",myPid,parentPid);
-        printf("[CHILD]Sleeping\n");
-        sleep(10);//child adopted by init
-        parentPid=getppid();
-        printf("[CHILD]My new parents PID=%d\n",parentPid);
-    }//child process
-    else{
-        myPid=getpid();
-        parentPid=getppid();
-        printf("[PARENT]My pid=%d\n[PARENT]My Parent's pid=%d\n ",myPid,parentPid);
-        printf("[PARENT]EXITING\n");
+       
+    }else
+    {
+        printf("Fork failed!!\n");
         exit(0);
     }
-}//int main
+    return 0;
+    
+}   

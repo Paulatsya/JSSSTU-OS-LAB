@@ -1,8 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
-void main(int argc,char *argv[]){
+int main(int argc,char *argv[]){
     FILE *fp1;
-    char ch;
+    char ch,temp[100];
     if(argc<2)
     {
         printf("Insufficient ammount of args\n");
@@ -14,8 +14,7 @@ void main(int argc,char *argv[]){
         return 0 ;
 
     }
-    while((ch=fgetc(fp1))!=EOF)
-        printf("%c",ch);
-    fclose(fp1);
+    fgets(temp,100,fp1);
+    printf("%s",temp);
     return 0;
 }

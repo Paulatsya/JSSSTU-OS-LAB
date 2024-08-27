@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "string_view": "c",
+        "shm.h": "c",
+        "ipc.h": "c",
+        "fcntl.h": "c",
+        "types.h": "c"
+    }
+}

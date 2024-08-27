@@ -1,1 +1,34 @@
-123456789ABCDEFGHIJKLMNOP
+123456789ABCDEFGHIJKLMNOP54321
+
+
+shell script
+1a,9a check palindrome or not
+2a generate prime numbers
+3a largest of n
+4a matrix
+12a largest of 3
+
+scheduling
+1b SJF preemptive
+2b Pri preemptive
+3b round robin
+4b Pri non-preemptive
+5b FCFS
+6b SJF non-preemptive
+
+shmget
+7b fib series 
+9b N Odd numbers
+
+shmopen
+8b  Fib series
+10b prime nos
+
+semaphores
+11b producer-consumer
+12b reader-writer
+
+comSimulation(7a,8a,10a)
+5a filehandelling
+6a fork
+threads
