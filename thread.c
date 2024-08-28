@@ -30,7 +30,7 @@ int main(int argc,char *argv[])
     pthread_attr_init(&attr);
 
     pthread_create(&t1,&attr,sum,argv[1]);
-    pthread_create(&t1,&attr,mul,argv[1]);
+    pthread_create(&t2,&attr,mul,argv[1]);
     pthread_join(t1,NULL);
     pthread_join(t2,NULL);
 
