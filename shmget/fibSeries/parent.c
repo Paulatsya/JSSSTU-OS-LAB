@@ -9,7 +9,7 @@
 #include<sys/shm.h>
 int main(int argc, char  *argv[])
 {
-    key_t key=1;
+    key_t key=1;//IMP key cant be 0
     int shmid=shmget(key,4096,0666 | IPC_CREAT);
     void *ptr=shmat(shmid,NULL,0);
     pid_t child_pid=fork();
